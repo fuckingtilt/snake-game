@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Змійка: Неоновий Потік</title>
+    <!-- Підключаємо ретро-шрифт з Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="hud">
+            <span>РАХУНОК: <span id="score">0</span></span>
+            <span>РЕКОРД: <span id="highscore">0</span></span>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <!-- Екран "Game Over", спочатку прихований -->
+        <div id="gameOverScreen" class="hidden">
+            <h2 class="game-over-title">ГРУ ЗАВЕРШЕНО</h2>
+            <p>Ваш рахунок: <span id="finalScore">0</span></p>
+            <button id="restartButton">ГРАТИ ЗНОВУ</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
