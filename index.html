@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Змійка: Неоновий Потік - Стабільна Версія</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- ГОЛОВНЕ МЕНЮ -->
+        <div id="mainMenu" class="screen active">
+            <h1 class="game-title glitch" data-text="НЕОНОВИЙ ПОТІК">НЕОНОВИЙ<br>ПОТІК</h1>
+            <button id="playButton" class="menu-button">ГРАТИ</button>
+            <button id="shopButton" class="menu-button">СКІНИ</button>
+            <button id="leaderboardButton" class="menu-button">ЛІДЕРИ</button>
+        </div>
+
+        <!-- ІГРОВИЙ ПРОЦЕС -->
+        <div id="gameScreen" class="screen">
+            <div class="hud">
+                <div class="hud-item">РАХУНОК: <span id="score">0</span></div>
+                <div class="hud-item coins-display">
+                    <span class="coin-icon"></span><span id="coins">0</span>
+                </div>
+                <div class="hud-item stars-display">
+                    <span class="star-icon"></span><span id="stars">0</span>
+                </div>
+                <div class="hud-item">РЕКОРД: <span id="highscore">0</span></div>
+            </div>
+            <div id="boss-hint" class="hidden"></div>
+            <canvas id="gameCanvas"></canvas>
+            <div id="boss-health-container" class="hidden">
+                <div id="boss-health-bar"></div>
+            </div>
+        </div>
+
+        <!-- ЕКРАН КІНЦЯ ГРИ -->
+        <div id="gameOverScreen" class="screen">
+            <h2 class="game-over-title glitch" data-text="ГРУ ЗАВЕРШЕНО">ГРУ ЗАВЕРШЕНО</h2>
+            <p>Ваш рахунок: <span id="finalScore">0</span></p>
+            <p id="questCompleteText" class="new-record-text hidden"></p>
+            <div id="gameOverButtons">
+                <button id="restartButton" class="menu-button">ГРАТИ ЗНОВУ</button>
+                <button id="backToMenuButton" class="menu-button secondary">ГОЛОВНЕ МЕНЮ</button>
+            </div>
+        </div>
+        
+        <!-- МАГАЗИН СКІНІВ -->
+        <div id="shopScreen" class="screen">
+            <h2 class="screen-title">СКІНИ</h2>
+            <div class="top-shop-hud">
+                <div class="coins-display shop-coins">
+                    <span class="coin-icon"></span><span id="shopCoins">0</span>
+                </div>
+                <div class="stars-display shop-stars">
+                    <span class="star-icon"></span><span id="shopStars">0</span>
+                </div>
+            </div>
+            <div id="skin-list" class="skin-list"></div>
+            <button id="closeShopButton" class="menu-button secondary">НАЗАД</button>
+        </div>
+        
+        <!-- ЕКРАН ЛІДЕРІВ -->
+        <div id="leaderboardScreen" class="screen">
+            <h2 class="screen-title">ЛІДЕРИ (ЛОКАЛЬНІ)</h2>
+            <div id="leaderboardContent">
+                 <ol id="highScoresList" class="leaderboard-list active"></ol>
+            </div>
+            <button id="backFromLeaderboard" class="menu-button secondary">НАЗАД</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
