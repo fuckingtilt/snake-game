@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Змійка: Неоновий Потік</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- 3D Паралакс Фон -->
+        <div id="parallax-bg-1" class="parallax-bg"></div>
+        <div id="parallax-bg-2" class="parallax-bg"></div>
+        <div id="parallax-bg-3" class="parallax-bg"></div>
+
+        <!-- ГОЛОВНЕ МЕНЮ -->
+        <div id="mainMenu" class="screen active">
+            <h1 class="game-title glitch" data-text="НЕОНОВИЙ ПОТІК">НЕОНОВИЙ<br>ПОТІК</h1>
+            <button id="playButton" class="menu-button">ГРАТИ</button>
+            <button id="shopButton" class="menu-button">СКІНИ</button>
+            <button id="tasksButton" class="menu-button">ЗАВДАННЯ</button>
+            <button id="leaderboardButton" class="menu-button">ЛІДЕРИ</button>
+        </div>
+
+        <!-- ІГРОВИЙ ПРОЦЕС -->
+        <div id="gameScreen" class="screen">
+            <div class="hud">
+                <div>РАХУНОК: <span id="score">0</span></div>
+                <div class="coins-display">
+                    <span class="coin-icon"></span><span id="coins">0</span>
+                </div>
+                <div>РЕКОРД: <span id="highscore">0</span></div>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+            <div id="level-container">
+                <div class="level-text">РІВЕНЬ <span id="level-value">1</span></div>
+                <div class="xp-bar-background">
+                    <div id="xp-bar"></div>
+                </div>
+            </div>
+            <div id="boss-health-container" class="hidden">
+                <div id="boss-health-bar"></div>
+                <div id="boss-health-text">БОС</div>
+            </div>
+        </div>
+
+        <!-- ЕКРАН КІНЦЯ ГРИ -->
+        <div id="gameOverScreen" class="screen">
+            <h2 class="game-over-title glitch" data-text="ГРУ ЗАВЕРШЕНО">ГРУ ЗАВЕРШЕНО</h2>
+            <p>Ваш рахунок: <span id="finalScore">0</span></p>
+            <div id="gameOverInfo" class="new-record-text"></div>
+            <div id="gameOverButtons">
+                <button id="restartButton" class="menu-button">ГРАТИ ЗНОВУ</button>
+                <button id="backToMenuButton" class="menu-button secondary">ГОЛОВНЕ МЕНЮ</button>
+            </div>
+        </div>
+        
+        <!-- МАГАЗИН СКІНІВ -->
+        <div id="shopScreen" class="screen">
+            <h2 class="screen-title">СКІНИ</h2>
+            <div class="coins-display shop-coins">
+                <span class="coin-icon"></span><span id="shopCoins">0</span>
+            </div>
+            <div id="skin-list" class="skin-list"></div>
+            <button id="closeShopButton" class="menu-button secondary">НАЗАД</button>
+        </div>
+
+        <!-- ЕКРАН ЗАВДАНЬ -->
+        <div id="tasksScreen" class="screen">
+            <h2 class="screen-title">ЗАВДАННЯ</h2>
+            <div id="tasks-list" class="tasks-list"></div>
+            <button id="backFromTasksButton" class="menu-button secondary">НАЗАД</button>
+        </div>
+        
+        <!-- ЕКРАН ЛІДЕРІВ -->
+        <div id="leaderboardScreen" class="screen">
+            <h2 class="screen-title">ЛІДЕРИ (ЛОКАЛЬНІ)</h2>
+            <div id="leaderboardContent">
+                 <ol id="highScoresList" class="leaderboard-list active"></ol>
+            </div>
+            <button id="backFromLeaderboard" class="menu-button secondary">НАЗАД</button>
+        </div>
+
+        <!-- МОДАЛЬНЕ ВІКНО ЩОДЕННОЇ НАГОРОДИ -->
+        <div id="dailyRewardModal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2 class="modal-title">ЩОДЕННИЙ БОНУС!</h2>
+                <p class="modal-text">Вітаємо! Ваша нагорода за вхід:</p>
+                <div class="modal-reward">
+                    <span class="coin-icon"></span>
+                    <span id="rewardAmount">0</span>
+                </div>
+                <button id="claimRewardButton" class="menu-button">ЗАБРАТИ</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
